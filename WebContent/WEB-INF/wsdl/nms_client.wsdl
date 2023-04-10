@@ -1,0 +1,133 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:as.service.server.equip.adaptor.bcn.kt.com" xmlns:intf="urn:as.service.server.equip.adaptor.bcn.kt.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://entity.server.equip.adaptor.bcn.kt.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:as.service.server.equip.adaptor.bcn.kt.com">
+<!-- WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT) -->
+<wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://entity.server.equip.adaptor.bcn.kt.com">
+<import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+<complexType name="AlarmEvent">
+<sequence>
+<element name="additionalText" nillable="true" type="soapenc:string"/>
+<element name="alarmCode" type="xsd:int"/>
+<element name="alarmTime" nillable="true" type="soapenc:string"/>
+<element name="alarmType" type="xsd:int"/>
+<element name="location" nillable="true" type="soapenc:string"/>
+<element name="probableCause" nillable="true" type="soapenc:string"/>
+<element name="serverId" nillable="true" type="soapenc:string"/>
+<element name="serviceIp" nillable="true" type="soapenc:string"/>
+<element name="severity" nillable="true" type="soapenc:string"/>
+<element name="systemId" nillable="true" type="soapenc:string"/>
+</sequence>
+</complexType>
+<complexType name="StatusEvent">
+<sequence>
+<element name="additionalText" nillable="true" type="soapenc:string"/>
+<element name="location" nillable="true" type="soapenc:string"/>
+<element name="probableCause" nillable="true" type="soapenc:string"/>
+<element name="serverId" nillable="true" type="soapenc:string"/>
+<element name="serviceIp" nillable="true" type="soapenc:string"/>
+<element name="stsCode" type="soapenc:string"/>
+<element name="stsTime" nillable="true" type="soapenc:string"/>
+<element name="systemId" nillable="true" type="soapenc:string"/>
+</sequence>
+</complexType>
+<complexType name="TrafficEvent">
+<sequence>
+<element name="fileLocation" nillable="true" type="soapenc:string"/>
+<element name="fileSize" type="xsd:int"/>
+<element name="serviceIp" nillable="true" type="soapenc:string"/>
+<element name="systemId" nillable="true" type="soapenc:string"/>
+</sequence>
+</complexType>
+<complexType name="FailCallEvent">
+<sequence>
+<element name="asId" nillable="true" type="soapenc:string"/>
+<element name="fileLocation" nillable="true" type="soapenc:string"/>
+<element name="fileSize" type="xsd:int"/>
+<element name="password" nillable="true" type="soapenc:string"/>
+<element name="serviceIp" nillable="true" type="soapenc:string"/>
+<element name="systemId" nillable="true" type="soapenc:string"/>
+<element name="time" nillable="true" type="soapenc:string"/>
+<element name="userId" nillable="true" type="soapenc:string"/>
+</sequence>
+</complexType>
+</schema>
+</wsdl:types>
+<wsdl:message name="trafficEventRequest">
+<wsdl:part name="in0" type="tns1:TrafficEvent"/>
+</wsdl:message>
+<wsdl:message name="alarmEventResponse"> </wsdl:message>
+<wsdl:message name="alarmEventRequest">
+<wsdl:part name="in0" type="tns1:AlarmEvent"/>
+</wsdl:message>
+<wsdl:message name="failCallEventResponse"> </wsdl:message>
+<wsdl:message name="trafficEventResponse"> </wsdl:message>
+<wsdl:message name="statusEventResponse"> </wsdl:message>
+<wsdl:message name="statusEventRequest">
+<wsdl:part name="in0" type="tns1:StatusEvent"/>
+</wsdl:message>
+<wsdl:message name="failCallEventRequest">
+<wsdl:part name="in0" type="tns1:FailCallEvent"/>
+</wsdl:message>
+<wsdl:portType name="AsNotiservice">
+<wsdl:operation name="alarmEvent" parameterOrder="in0">
+<wsdl:input message="impl:alarmEventRequest" name="alarmEventRequest"/>
+<wsdl:output message="impl:alarmEventResponse" name="alarmEventResponse"/>
+</wsdl:operation>
+<wsdl:operation name="statusEvent" parameterOrder="in0">
+<wsdl:input message="impl:statusEventRequest" name="statusEventRequest"/>
+<wsdl:output message="impl:statusEventResponse" name="statusEventResponse"/>
+</wsdl:operation>
+<wsdl:operation name="trafficEvent" parameterOrder="in0">
+<wsdl:input message="impl:trafficEventRequest" name="trafficEventRequest"/>
+<wsdl:output message="impl:trafficEventResponse" name="trafficEventResponse"/>
+</wsdl:operation>
+<wsdl:operation name="failCallEvent" parameterOrder="in0">
+<wsdl:input message="impl:failCallEventRequest" name="failCallEventRequest"/>
+<wsdl:output message="impl:failCallEventResponse" name="failCallEventResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="asNotiserviceSoapBinding" type="impl:AsNotiservice">
+<wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="alarmEvent">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="alarmEventRequest">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:input>
+<wsdl:output name="alarmEventResponse">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="statusEvent">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="statusEventRequest">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:input>
+<wsdl:output name="statusEventResponse">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="trafficEvent">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="trafficEventRequest">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:input>
+<wsdl:output name="trafficEventResponse">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="failCallEvent">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="failCallEventRequest">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:input>
+<wsdl:output name="failCallEventResponse">
+<wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:as.service.server.equip.adaptor.bcn.kt.com" use="encoded"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="AsNotiserviceService">
+<wsdl:port binding="impl:asNotiserviceSoapBinding" name="asNotiservice">
+<wsdlsoap:address location="http://192.168.144.119:9090/axis/services/asNotiservice"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/com/kt/bcn/adaptor/equip/server/entity/AlarmEvent.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/entity/FailCallEvent.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/entity/StatusEvent.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/entity/TrafficEvent.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/service/as/AsNotiservice.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/service/as/AsNotiserviceService.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/service/as/AsNotiserviceServiceLocator.java=UTF-8
+encoding//src/com/kt/bcn/adaptor/equip/server/service/as/AsNotiserviceSoapBindingStub.java=UTF-8
